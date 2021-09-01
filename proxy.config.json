@@ -1,0 +1,14 @@
+[
+    {
+        "context": [
+            "/",
+            "/cache",
+            "/user",
+            "/signin",
+            "/signin?error"
+        ],
+        "target": "http://localhost:8081",
+        "secure": false,
+        "changeOrigin": true
+    }
+  ]

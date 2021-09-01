@@ -1,0 +1,36 @@
+<div id="app">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <ul class="navbar-nav" routerLinkActive="active">
+      <li class="nav-item">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+    </ul>
+    <ul *ngIf="isLoggedIn" class="navbar-nav" routerLinkActive="active">
+      <li *ngIf="authority === 'admin'" class="nav-item">
+        <a href="/create-student" class="nav-link" routerLink="create-student">Add Student</a>
+      </li>
+      <li class="nav-item">
+        <a href="/allstudents" class="nav-link" routerLink="allstudents">Admin Board - Student List</a>
+      </li>
+    </ul>
+    <ul *ngIf="isLoggedIn" class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <label>{{ username }}</label>
+      </li>
+      <li class="nav-item">
+        <a href class="nav-link" (click)="logout()">Log Out</a>
+      </li>
+    </ul>
+    <ul *ngIf="!isLoggedIn" class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="/register" class="nav-link" routerLink="register">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a href="/login" class="nav-link" routerLink="login">Login</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</div>
