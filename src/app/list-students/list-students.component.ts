@@ -19,7 +19,7 @@ export class ListStudentsComponent implements OnInit {
   studentsArray:any[]=[];
 
   students: Array<Student>;
-  student:Student=new Student();
+  stud:Student=new Student();
   deleteMessage=false;
   studentlist:any;
   isupdated=false;
@@ -42,8 +42,8 @@ export class ListStudentsComponent implements OnInit {
     )
   }
 
-  updateStudent(id: number) {
-    this.studentService.updateStudent(id, this.student).subscribe(
+  updateStudent(id: number, st: Student) {
+    this.studentService.updateStudent(id, st).subscribe(
       data =>{
         console.log(data);
         this.studentService.getStudentList().subscribe(data=>{

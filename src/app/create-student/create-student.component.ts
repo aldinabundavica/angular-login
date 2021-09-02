@@ -17,6 +17,10 @@ export class CreateStudentComponent implements OnInit {
     addForm: FormGroup;
     firstName: FormControl;
     bsConfig: any;
+    isFailed: boolean;
+
+    errorMessage = '';
+    
 
 
    ngOnInit(): void {
@@ -31,12 +35,18 @@ export class CreateStudentComponent implements OnInit {
       dateInputFormat: 'MM-dd-yyyy',
       maxDate: new Date().getDate()
     };
+    this.isFailed = false;
    }
 
 
   onSubmit(){
     this.studentService.createStudent(this.addForm.value).subscribe(data=>{
       this.router.navigate(['allstudents']);
-    });
+    },
+    err => {
+      this.errorMessage = err.error.message;
+      this.isFailed = true;
+    }
+    );
   }    
 }

@@ -9,7 +9,7 @@ import { ListStudentsComponent } from './list-students/list-students.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { JwtInterceptor } from './helper/jwt.interceptor';
+import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';

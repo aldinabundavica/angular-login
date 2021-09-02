@@ -17,7 +17,6 @@
         name="username"
         [(ngModel)]="form.username"
         required
-        minlength="6"
         #username="ngModel"
         placeholder="Username"
       />
@@ -37,7 +36,6 @@
           name="password"
           [(ngModel)]="form.password"
           required
-          minlength="6"
           #password="ngModel"
           placeholder="Password"
         />
@@ -60,7 +58,7 @@
           role="alert"
           *ngIf="f.submitted && isLoginFailed"
         >
-          Login failed: {{ errorMessage }}
+          Login failed! {{ errorMessage }}
         </div>
       </div>
     </form>
