@@ -13,6 +13,7 @@ import { JwtInterceptor } from './interceptor/jwt.interceptor';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     CreateStudentComponent,
     ListStudentsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    EditStudentComponent
   ],
   imports: [
     BrowserModule,

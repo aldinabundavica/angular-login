@@ -15,7 +15,14 @@
     </ul>
     <ul *ngIf="isLoggedIn" class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link">{{ username }}</a>
+        <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+          Static
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Action</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Another action</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Something else here</a>
+        </div>
       </li>
       <li class="nav-item">
         <button class = "btn btn-outline-light" (click)="logout()">Log Out</button>

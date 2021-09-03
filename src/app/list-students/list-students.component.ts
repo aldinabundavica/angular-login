@@ -4,6 +4,7 @@ import { StudentService } from '../service/student.service';
 
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
 import { Student } from '../model/student';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,8 @@ import { Student } from '../model/student';
 export class ListStudentsComponent implements OnInit {
   formBuilder: any;
 
-  constructor(private studentService:StudentService) { }
+  constructor(private studentService:StudentService, 
+    private router: Router) { }
 
   studentsArray:any[]=[];
 
@@ -22,11 +24,9 @@ export class ListStudentsComponent implements OnInit {
   stud:Student=new Student();
   deleteMessage=false;
   studentlist:any;
-  isupdated=false;
 
 
   ngOnInit(): void {  
-    this.isupdated=false;    
     this.studentService.getStudentList().subscribe(data =>{  
     this.students = data;
     })
@@ -42,14 +42,7 @@ export class ListStudentsComponent implements OnInit {
     )
   }
 
-  updateStudent(id: number, st: Student) {
-    this.studentService.updateStudent(id, st).subscribe(
-      data =>{
-        console.log(data);
-        this.studentService.getStudentList().subscribe(data=>{
-          this.students=data})
-      }
-    )
+  updateStudent(id: number) {
+    this.router.navigate(['edit-student', id]);
   }
-
 }

@@ -19,7 +19,7 @@
                     <td>{{student.lastname}}</td>  
                     <td>{{student.birthDate | date: 'dd/MM/yyyy'}}</td>
                     <td>
-                        <button  type="button" class='btn btn-info' data-toggle="modal" [attr.data-target]="'#edit'+student.id">
+                        <button  type="button" class='btn btn-info' (click)="updateStudent(student.id)">
                             <i class="fas fa-user-edit" aria-hidden="true"></i>
                         </button>
                     </td>
@@ -29,60 +29,7 @@
                         </button>
                     </td>
                     
-                     <!-- modal for edit student details-->
-                    <div class="modal fade in" id="edit{{student.id}}" tabindex="-1" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <form #editForm="ngForm">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title">Edit Student Details</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <form>
-                                    <div class="modal-body">
-                                        <div class="form-group   mr-auto">
-                                            <label>First Name</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="First Name"
-                                                [(ngModel)]="stud.name" name="name"
-                                                value ={{student.name}} 
-                                                #name="ngModel"
-                                            >
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Last Name</label>
-                                            <input 
-                                                type="text" 
-                                                class="form-control" 
-                                                placeholder="Last Name"
-                                                [(ngModel)]="stud.lastname" name="lastname"
-                                            >
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Birth Date</label>
-                                            <input type="text"
-                                            placeholder="Birth Date"
-                                            class="form-control"
-                                            bsDatepicker
-                                            [bsConfig]="{ isAnimated: true, containerClass: 'theme-red'}"
-                                            [(bsValue)]="stud.birthDate" value="{{ stud.birthDate | date:'yyyy-MM-dd' }}"
-                                            [(ngModel)]="stud.birthDate" name="birthDate"
-                                            >
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="submit" (click)="updateStudent(student.id, stud)" class="btn btn-primary" data-dismiss="modal">Submit</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
+                     
                     <!-- Modal for delete student data from DB-->
                     <div class="modal fade in" id="deleteModal{{student.id}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">

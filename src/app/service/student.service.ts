@@ -38,4 +38,13 @@ export class StudentService {
     updateStudent(id: number, student: Student): Observable<Object>{
         return this.httpClient.put(`${environment.apiUrl}` + `update-student/${id}`, student);
     }
+
+    getStudent(id: number): Observable<Student>{
+        return this.httpClient.get<Student>(`${environment.apiUrl}` + `student/${id}`).pipe(
+            map(data=>{
+                data.birthDate = new Date(data.birthDate);
+                return data;
+            })
+        );
+    }
 }

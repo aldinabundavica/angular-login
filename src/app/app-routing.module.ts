@@ -4,6 +4,7 @@ import { CreateStudentComponent } from './create-student/create-student.componen
 import { ListStudentsComponent } from './list-students/list-students.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { EditStudentComponent } from './edit-student/edit-student.component';
 
 
 
@@ -21,8 +22,22 @@ const routes: Routes = [
     path: 'login', 
     component: LoginComponent
   },
-  {path: 'register', component: RegisterComponent},
-  {path: 'create-student', component: CreateStudentComponent}
+  {
+    path: 'register', 
+    component: RegisterComponent
+  },
+  {
+    path: 'create-student', 
+    component: CreateStudentComponent
+  },
+  {
+    path: 'login', 
+    component: LoginComponent
+  },
+  {
+    path: 'edit-student/:id', 
+    component: EditStudentComponent
+  },
 
 
 ];

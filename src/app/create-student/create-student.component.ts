@@ -1,4 +1,3 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -18,6 +17,7 @@ export class CreateStudentComponent implements OnInit {
     firstName: FormControl;
     bsConfig: any;
     isFailed: boolean;
+    today: Date;
 
     errorMessage = '';
     
@@ -32,9 +32,9 @@ export class CreateStudentComponent implements OnInit {
         birthDate: ['', Validators.required]
      });
      this.bsConfig = {
-      dateInputFormat: 'MM-dd-yyyy',
-      maxDate: new Date().getDate()
+      dateInputFormat: 'MM-dd-yyyy'
     };
+    this.today = new Date();
     this.isFailed = false;
    }
 
